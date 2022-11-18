@@ -2,16 +2,16 @@ puts "🌱 Seeding spices..."
 
 Category.create([
     {
-        job_title: "Music"
+        title: "Music"
     },
     {
-        job_title: "Computer Science"
+        title: "Computer Science"
     },
     {
-        job_title: "Medical"
+        title: "Medical"
     },
     {
-        job_title: "Food Industry"
+        title: "Food Industry"
     }
 ])
 

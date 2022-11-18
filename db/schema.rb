@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_11_14_215928) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "job_title"
+    t.string "title"
   end
 
   create_table "jobs", force: :cascade do |t|
