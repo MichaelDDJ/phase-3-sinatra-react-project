@@ -8,8 +8,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/Categories" do
-    categories = Category.all_plus
+    categories = Category.all
     categories.to_json
+  end
+
+  get "/Categories/:id" do
+    job_list = Category.find(params[:id])
+    q = job_list.jobs
+    q.to_json
   end
 
 end
