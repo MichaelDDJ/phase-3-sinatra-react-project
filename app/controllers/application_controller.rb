@@ -3,11 +3,13 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/Jobs" do
-    Job.all.to_json
+    jobs = Job.all
+    jobs.to_json
   end
 
   get "/Categories" do
-    Job.all.to_json
+    categories = Category.all_plus
+    categories.to_json
   end
 
 end
