@@ -18,4 +18,21 @@ class ApplicationController < Sinatra::Base
     q.to_json
   end
 
+  post '/Categories' do
+    category= Category.create(
+      title: params[:title]
+    )
+    category.to_json
+  end
+
+  post '/Jobs' do
+    job = Job.create(
+      job_title: params[:job_title],
+      description: params[:description],
+      category_id: params[:category_id]
+    )
+    job.to_json
+  end
+
+
 end
