@@ -42,4 +42,10 @@ class ApplicationController < Sinatra::Base
     category.to_json
   end
 
+  delete '/Jobs/:id' do
+    job = Job.find(params[:id])
+    job.destroy
+    job.to_json
+  end
+
 end
