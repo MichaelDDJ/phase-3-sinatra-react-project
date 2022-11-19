@@ -34,5 +34,12 @@ class ApplicationController < Sinatra::Base
     job.to_json
   end
 
+  patch '/Categories/:id' do
+    category = Category.find(params[:id])
+    category.update(
+      title: params[:title],
+    )
+    category.to_json
+  end
 
 end
