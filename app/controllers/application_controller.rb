@@ -2,19 +2,19 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  get "/Categories" do
+  get "/categories" do
     categories = Category.all
     categories.to_json(include: {jobs:{only:[:job_title, :description, :id]}})
   end
 
-  post '/Categories' do
+  post '/categories' do
     category= Category.create(
       title: params[:title]
     )
     category.to_json(include: {jobs:{only:[:job_title, :description]}})
   end
 
-  patch '/Categories/:id' do
+  patch '/categories/:id' do
     category = Category.find(params[:id])
     category.update(
       title: params[:title],
@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
     category.to_json(include: {jobs:{only:[:job_title, :description]}})
   end
 
-  delete '/Categories/:id' do
+  delete '/categories/:id' do
     category_jobs = Category.find(params[:id]).jobs
     category_jobs.destroy
     category_jobs.to_h-json
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
     category.to_json
   end
 
-  post '/Jobs' do
+  post '/jobs' do
     job = Job.create(
       job_title: params[:job_title],
       description: params[:description],
@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
     job.to_json
   end
 
-  delete '/Jobs/:id' do
+  delete '/jobs/:id' do
     job = Job.find(params[:id])
     job.destroy
     job.to_json
