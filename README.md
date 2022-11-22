@@ -1,4 +1,4 @@
-#Back-end Sinatra Project
+# Back-end Sinatra Project
 
 This repository is for a backend to a larger project.
 The front end can be found here:
